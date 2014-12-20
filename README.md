@@ -18,7 +18,7 @@ my executable boards will look somewhat like that but hopefully a bit higher qua
 
 so here's an extremely rough example of how i intend to implement. the original pgm creates an 8 key xylophone, in my example the 8th key will say the classic "Ok terrific" sound byte instead of the last note of a major scale. 
 
-**If you want to take it a step further you can scope out the xylophone example which I slightly modified, it should be easy to modify this into a button board for podcasts or a talk radio program:** as a 
+**If you want to take it a step further you can scope out the xylophone example which I slightly modified, it should be easy to modify this into a button board for podcasts or a talk radio program:** 
 
 **Note regarding media law and (c) infringement: I am a braodcaster and media law specialist, so long as the soundbytes are not "substantive" as is: not an entire scene...and are used for archive, entertainment/information/comedic and creative purposes, it is not (c) infringement. If I created a radio button that played an entire track, or entire scene/episode/movie, etc THAT would be... "OK fagget! ... What's next?" written by Stanley Kubrick and spoken by R. Lee Ermey as a standalone soundbyte is not.**
 
