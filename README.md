@@ -51,20 +51,34 @@ so here's an extremely rough example of how i intend to implement. the original 
  */
 package xylophone; //rename : myButtonBoard or whatver "SilenceoftheLambsQuotes" etc....
 
-import javafx.application.Application; //  **req'd**
-import javafx.event.EventHandler;      //  **req'd**
-import javafx.scene.Group;             //optional
-import javafx.scene.Scene;             //  **req'd**
-import javafx.scene.effect.Light;      //not needed
-import javafx.scene.effect.Lighting;   //not needed
-import javafx.scene.input.MouseEvent;  //  **crucial**
-import javafx.scene.layout.Pane;       //think stackpane will work better
-import javafx.scene.media.AudioClip;   //  **crucial**
-import javafx.scene.paint.Color;       //handy!
-import javafx.scene.shape.Rectangle;   //prob needed
-import javafx.stage.Stage;             // **req'd**
-import javafx.event.ActionEvent;       // **req'd**
-import javafx.scene.control.Button;    // **req'd**
+import javafx.application.Application;
+//  **req'd**
+import javafx.event.EventHandler;      
+//  **req'd**
+import javafx.scene.Group;             
+//optional
+import javafx.scene.Scene;             
+//  **req'd**
+import javafx.scene.effect.Light;      
+//not needed
+import javafx.scene.effect.Lighting;   
+//not needed
+import javafx.scene.input.MouseEvent;  
+//  **crucial**
+import javafx.scene.layout.Pane;       
+//think stackpane will work better
+import javafx.scene.media.AudioClip;   
+//  **crucial**
+import javafx.scene.paint.Color;       
+//handy!
+import javafx.scene.shape.Rectangle;   
+//prob needed
+import javafx.stage.Stage;             
+// **req'd**
+import javafx.event.ActionEvent;       
+// **req'd**
+import javafx.scene.control.Button;    
+// **req'd**
 import javafx.scene.layout.StackPane;
 
 
