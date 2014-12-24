@@ -9,6 +9,9 @@ all u need is **Audacity, win8 (7? Vista?) and notepad. you can read them yourse
 
 pack your waves in short sound bytes, like Jodie Foster saying "He said ... I can smell your c---" etc. upload them here or save if poss. I'm going to include a code snip using the xylophone ex. found on Netbeans. 
 
+here is an example of Greg Hughes using multiple button boards **masterfully** during a live interview about child-abuse w/ Bob Kelly: http://tapper7.com/best-improvised-radio-bit-ever/
+
+
 So this will start as say *3 button boards* for each of the above movies and *1 button board for "rules"* 
 
 *Classic OnA bytes should be collected for posterity as the show is pretty much done for.* "I broke my knee dude," "8-track pr0n" and others...*u get the idea.* Someone built a decent one in Flash about 8 yrs ago. I'd build on top of it if I had a way to create executable .flv web pages, but I dont. u can find his sample board on www.wackbag.com. 
