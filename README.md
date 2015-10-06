@@ -3,18 +3,42 @@ button boards for podcasts
 
 im putting together several soundboards to use w/ podcasts. ill build them in JavaFX. think O &amp; A style: movie quotes and classic sound bytes. "Am Psycho"...."Full Metal Jacket," "Silence of the Lambs etc."
 
-**also a soundboard using the "David" and "British Chick" Windows voices to read all rules of the internet out loud.**
-all u need is **Audacity, win8 (7? Vista?) and notepad. you can read them yourself if you can make it funny/informative and/or entertaining.**
-*note: just the good ones/funny NOT the self-serving ones like "this_user is God," ----those suck.*
-
 pack your waves in short sound bytes, like Jodie Foster saying "He said ... I can smell your c---" etc. upload them here or save if poss. I'm going to include a code snip using the xylophone ex. found on Netbeans. 
 
 here is an example of Greg Hughes using multiple button boards **masterfully** during a live interview about child-abuse w/ Bob Kelly: http://tapper7.com/best-improvised-radio-bit-ever/
 
+1 board for common categories, possibly a meta-category tab to make locating a byte *live* or *on-the-fly* easier
+Example: consider the Christian Bale's "timeless" query before he murders Paul Allen:
+"Do you like Huey Lewis and The News?"
+We might want to interject this byte under a variety of circumstances, so I've yet to 
+design a UI that could access this byte several ways, from abstract to specific
+Movies
+--American Psycho
+----"Do you like Huey..."
+People
+--Christian Bale
+----"D...."
+Mood
+--Dark Humor
+----"D..."
+Era
+--80s
+----"D...."
+Crime
+--Murder
+----"D..."
 
-So this will start as say *3 button boards* for each of the above movies and *1 button board for "rules"* 
+In the above example, ANYTIME the live or on-the-fly topic is Christian Bale, we're making dark jokes, discussing the 80s or referencing 1st degree murder, we'd want to have that quote locked and loaded...so if the moment to interject the byte comes up we can locate and play it quickly. A good set of boards for a podcast could be run by a capable operatpor but with some additonal logic to the way soundbytes are opranized and connected so they can be played seamlessly. If any time or dead air is used to locate a soundbyte-- that would indicate a new category, parent category, child category or related-category.
+Suppose Huey Lewis has an upcoming concert or becomes a news item? Then we'd add him to "people" and the ex. soundbyte would be a button to press under his name.
+^^^^NOTE: the above is a more complex design scheme, v0 will consist of a relatively-specific category and 10-20 buttons.
+Such as:
+CATEGORY
+--Bill O'Reilly
+----buttons of him saying different things
+^^^^NOTE: in this v0 ex, O'Reilly is considered a broad enopugh category that he has his own board, later on in dvevelopment, he would get linked/tagged/categorized by things like "Conservative Pundits" "People" "Famous People" "Broadcasters" "People losing their tempers," "People making on-air mistakes," "People getting pranked LIVE On-Air,"
+--All of which would link to the famous "Jack Mehoffer" soundbyte
 
-*Classic OnA bytes should be collected for posterity as the show is pretty much done for.* "I broke my knee dude," "8-track pr0n" and others...*u get the idea.* Someone built a decent one in Flash about 8 yrs ago. I'd build on top of it if I had a way to create executable .flv web pages, but I dont. u can find his sample board on www.wackbag.com. 
+*Classic OnA bytes should be collected for posterity as the show is pretty much done for.* "I broke my knee dude," "RRrrrrrrrrramone........." and others...*u get the idea.* Someone built a decent board in Flash about 8 yrs ago. I'd rebuild it from scratch based on a similar design scheme if I had the tools to create .flv web pages, but I dont. u can find his sample board on www.wackbag.com. The sound quality is severely lacking and easy to improve upon. Building it in JavaFX seems the most scalable and portable language so others can use it, change it and customize it regardless of OS, browser, equipment, studio set-up etc....
 
 my executable boards will look somewhat like that but hopefully a bit higher quality in terms of sound and UI.
 *certainly higher quality in terms of volume of funny/memorable sound bytes*
@@ -25,7 +49,7 @@ so here's an extremely rough example of how i intend to implement. the original 
 
 **Note regarding media law and (c) infringement: I am a broadcaster and media law specialist, so long as the soundbytes are not "substantive" as is: not an entire scene...and are used for archive, entertainment/information/comedic and creative purposes, it is not (c) infringement. If I created a radio button that played an entire track, or entire scene/episode/movie, etc THAT would be... "OK fagget! ... What's next?" written by Stanley Kubrick and spoken by R. Lee Ermey as a standalone soundbyte is not.**
 
-    * Copyright (c) 2008, 2012 Oracle and/or its affiliates.
+    /* Copyright (c) 2008, 2012 Oracle and/or its affiliates.
     * All rights reserved. Use is subject to license terms.
     * This file is available and licensed under the following license:
     * Redistribution and use in source and binary forms, with or without
@@ -51,7 +75,7 @@ so here's an extremely rough example of how i intend to implement. the original 
     * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
     * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
     */
-    package xylophone; //rename : myButtonBoard or whatver "SilenceoftheLambsQuotes" etc....
+    package myButtonBoard; 
     import javafx.application.Application; //  **req'd**
     import javafx.event.EventHandler;      //  **req'd**
     import javafx.scene.Group;             //optional
@@ -67,23 +91,8 @@ so here's an extremely rough example of how i intend to implement. the original 
     import javafx.event.ActionEvent;       // **req'd**
     import javafx.scene.control.Button;    // **req'd**
     import javafx.scene.layout.StackPane;
-
-
-    /**
-     * **A sample that demonstrates the basics of AudioClips.**
-     * @see javafx.scene.media.AudioClip
-     * @resource Note1.wav
-     * @resource Note2.wav
-     * @resource Note3.wav
-     * @resource Note4.wav
-     * @resource Note5.wav
-     * @resource Note6.wav
-     * @resource Note7.wav
-     * @resource Note8.wav
-     */
-    //public final class myButtonBoard extends Application{
-    public final class Xylophone extends Application {
-        private void init(Stage primaryStage) {
+    public final class myButtonBoard extends Application{
+      private void init(Stage primaryStage){
             Group root = new Group();
             primaryStage.setResizable(false);
             primaryStage.setScene(new Scene(root, 480, 350));
@@ -159,14 +168,6 @@ so here's an extremely rough example of how i intend to implement. the original 
             bar8Group.setOnMousePressed(new EventHandler<MouseEvent>() {
                 public void handle(MouseEvent me) { bar8Note.play(); }
             });
-        // **no need for lighting**
-        Light.Point light = new Light.Point();
-        light.setX(-20);
-        light.setY(-20);
-        light.setZ(100);
-        Lighting l = new Lighting();
-        l.setLight(light);
-        l.setSurfaceScale(1.0f)
         
         bar1Group.setEffect(l);
         bar2Group.setEffect(l);
@@ -190,14 +191,12 @@ so here's an extremely rough example of how i intend to implement. the original 
         rectangleGroup.setScaleX(1.8);
         rectangleGroup.setScaleY(1.8);
         rectangleGroup.setTranslateX(55.0); 
-        
         Pane pane = new Pane(); 
         pane.getChildren().add(rectangleGroup);
         root.getChildren().add(pane);
+   }
 
-    }
-
-    public static Group createRectangle(Color color, double tx, double ty, double sx, double sy) {
+    public static Group createRectangle(Color color, double tx, double ty, double sx, double sy){
         Group squareGroup = new Group();
         Rectangle squareShape = new Rectangle(1.0, 1.0);
         squareShape.setFill(color);
@@ -210,18 +209,11 @@ so here's an extremely rough example of how i intend to implement. the original 
         squareGroup.setScaleY(sy);
         return squareGroup;
     }
-    @Override public void start(Stage primaryStage) throws Exception {
+    @Override public void start(Stage primaryStage) throws Exception{
         init(primaryStage);
         primaryStage.show();
     }
-    /**
-     * The main() method is ignored in correctly deployed JavaFX 
-     * application. main() serves only as fallback in case the 
-     * application can not be launched through deployment artifacts,
-     * e.g., in IDEs with limited FX support. NetBeans ignores main().
-     * @param args the command line arguments
-     */
-        public static void main(String[] args){
+    public static void main(String[] args){
         launch(args);
-        }
     }
+   
